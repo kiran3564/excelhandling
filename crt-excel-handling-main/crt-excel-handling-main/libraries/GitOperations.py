@@ -3,7 +3,7 @@ from robot.api import logger
 from robot.api.deco import keyword
 import git
 
-class GitOperations 
+class GitOperations(object):
 
     def __init__(self):
         self._project_name = os.environ.get("SCRIPTS", "")
@@ -40,3 +40,6 @@ class GitOperations
         my_repo.index.add(path_to_file)
         my_repo.index.commit("CRT robot committing changes to {}".format(file_name))
         my_repo.git.push("origin", git_branch)
+    @keyword
+    def test_git_keyword(self):
+    logger.console("Git Keyword Called")
