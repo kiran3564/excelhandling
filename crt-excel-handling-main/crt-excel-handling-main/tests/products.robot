@@ -46,7 +46,7 @@ Update Product Id
     VerifyText          Find your spirit animal
 
     # Open existing workbook
-    ${document}=        Open Excel Document    ${excel_worksheet}    products
+   # ${document}=        Open Excel Document    ${excel_worksheet}    products
 
     # Create new unique product id
     ${new_id}=          Generate Random String    length=6    chars=[NUMBERS]
