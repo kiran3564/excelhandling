@@ -1,7 +1,7 @@
 *** Settings ***
 Resource                ../resources/common.resource
 Library                 ExcelLibrary
-Library                ${EXECDIR}/../../libraries/GitOperations.py
+Library                ../libraries/GitOperations.py
 Test Teardown           Close All Excel Documents
 Suite Setup             Setup Browser
 Suite Teardown          End Suite
@@ -63,14 +63,5 @@ Update Product Id
 
     # Save changes to excel and commit to git
     Save Excel Document  ${excel_worksheet}
-    Commit And Push     ${excel_worksheet}     ${git_branch}
+     ${coomitpush}=         Commit And Push     ${excel_worksheet}     ${git_branch}
  
- 
-*** Test Cases ***
-Debug Library Path
-    Log Library Path
-
-*** Test Cases ***
-Verify Library
-    Import Library    ${EXECDIR}/../../libraries/GitOperations.py
-    Library Should Exist    GitOperations
