@@ -17,7 +17,7 @@ class GitOperations:
         self._data_path = os.path.join(self._project_path, "data")
         logger.console(f"Data Path: {self._data_path}")
 
-    @keyword
+    @keyword(name="Commit And Push")
     def commit_and_push(self, file_name, git_branch):
         try:
             path_to_file = os.path.join(self._data_path, file_name)
