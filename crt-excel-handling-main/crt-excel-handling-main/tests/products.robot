@@ -6,6 +6,12 @@ Test Teardown           Close All Excel Documents
 Suite Setup             Setup Browser
 Suite Teardown          End Suite
 
+*** Keywords ***
+Log Library Path
+    Log To Console    ${EXECDIR}
+    Log To Console    ${CURDIR}
+
+
 
 *** Variables ***
 ${webshop}              https://qentinelqi.github.io/shop/
@@ -58,3 +64,8 @@ Update Product Id
     # Save changes to excel and commit to git
     Save Excel Document  ${excel_worksheet}
     Commit And Push     ${excel_worksheet}     ${git_branch}
+ 
+ 
+*** Test Cases ***
+Debug Library Path
+    Log Library Path
