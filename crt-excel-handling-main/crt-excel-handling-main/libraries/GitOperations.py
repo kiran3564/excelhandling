@@ -23,8 +23,7 @@ class GitOperations(object):
         logger.console(self._project_path)
         self._data_path = os.path.join(self._project_path, "data/")
         logger.console(self._data_path)
-
-    @keyword
+        
     def commit_and_push(self, file_name, git_branch):
 
         path_to_file = os.path.join(self._data_path, file_name)
