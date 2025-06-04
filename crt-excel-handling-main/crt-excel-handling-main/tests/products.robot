@@ -1,7 +1,7 @@
 *** Settings ***
 Resource                ../resources/common.resource
 Library                 ExcelLibrary
-Library                 ../libraries/GitOperations.py
+Library                ${EXECDIR}/../../libraries/GitOperations.py
 Test Teardown           Close All Excel Documents
 Suite Setup             Setup Browser
 Suite Teardown          End Suite
@@ -69,3 +69,8 @@ Update Product Id
 *** Test Cases ***
 Debug Library Path
     Log Library Path
+
+*** Test Cases ***
+Verify Library
+    Import Library    ${EXECDIR}/../../libraries/GitOperations.py
+    Library Should Exist    GitOperations
