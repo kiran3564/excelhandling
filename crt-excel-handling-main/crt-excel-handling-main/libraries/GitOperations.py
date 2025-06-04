@@ -24,6 +24,10 @@ class GitOperations(object):
         logger.console(self._project_path)
         self._data_path = os.path.join(self._project_path, "data/")
         logger.console(self._data_path)
+        
+    @keyword
+    def test_git_keyword(self):
+    logger.console("Git Keyword Called")
 
     @keyword
     def commit_and_push(self, file_name, git_branch):
