@@ -1,7 +1,7 @@
 *** Settings ***
 Resource                ../resources/common.resource
 Library                 ExcelLibrary
-Library                ../libraries/GitOperations.py
+Library                ../tests/GitOperations.py
 Test Teardown           Close All Excel Documents
 Suite Setup             Setup Browser
 Suite Teardown          End Suite
@@ -67,4 +67,4 @@ Update Product Id
     Commit And Push     ${excel_worksheet}     ${git_branch}         
     Log To Console    ${CURDIR}
     
- s
+ 
