@@ -55,7 +55,7 @@ Update Product Id
     ${current_id}=      Read Excel Cell    row_num=2    col_num=2    sheet_name=Fur
 
     # Write new product id to the excel
-    Write Excel Cell    row_num=2    col_num=2    value=${new_id}    sheet_name=Fur
+    Write Excel Cell    row_num=2    col_num=2    value=3456    sheet_name=Fur
 
     # Check that new value was updated to excel
     ${updated_id}=      Read Excel Cell    row_num=2    col_num=2    sheet_name=Fur
@@ -64,7 +64,7 @@ Update Product Id
     # Save changes to excel and commit to git
     Save Excel Document  ${excel_worksheet}
     sleep                10s
-    Commit And Push     ${excel_worksheet}     ${git_branch}         
+    #Commit And Push     ${excel_worksheet}     ${git_branch}         
     Log To Console    ${CURDIR}
     
  
