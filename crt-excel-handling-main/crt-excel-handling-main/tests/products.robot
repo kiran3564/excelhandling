@@ -22,8 +22,6 @@ ${git_branch}           main
 *** Test Cases ***
 Verify Products
     [Documentation]     Read product names from excel sheet and verify that those can be found from a webshop page
-    ...                 ExcelLibrary keyword documentation:
-    ...                 https://rawgit.com/peterservice-rnd/robotframework-excellib/master/docs/ExcelLibrary.html
     [Tags]              excelss
     GoTo                ${webshop}
     VerifyText          Find your spirit animal
