@@ -17,7 +17,7 @@ Log Library Path
 ${webshop}              https://qentinelqi.github.io/shop/
 ${excel_worksheet}      ${CURDIR}/../files/products_worksheet.xlsx
 ${git_branch}           main
-${REPO_PATH}          /home/services/suite/crt-excel-handling-main/crt-excel-handling-main
+${REPO_PATH}          crt-excel-handling-main/crt-excel-handling-main/files/products_worksheet.xlsx
 ${GIT_BRANCH}         main
 ${EXCEL_WORKSHEET}    files/products_worksheet.xlsx
 
