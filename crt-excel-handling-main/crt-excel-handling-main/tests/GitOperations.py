@@ -14,19 +14,14 @@ def run_command(command, cwd=None):
     except subprocess.CalledProcessError as e:
         print(f"❌ Command failed: {e.stderr}")
         sys.exit(1)
- def commit_and_push(self, files, branch, repo_path='.', remote='origin', commit_message='Auto-commit'):
-    try:
-        repo = Repo(repo_path)  # This must be a directory containing a .git folder
-        assert not repo.bare
-
-        repo.index.add([files] if isinstance(files, str) else files)
-        repo.index.commit(commit_message)
-
-        origin = repo.remote(name=remote)
-        origin.push(refspec=f"{branch}:{branch}")
-        print(f"Pushed to {remote}/{branch}")
-    except Exception as e:
-        raise Exception(f"Git operation failed: {e}")
+ 
+def commit_and_push(repo_path, files, commit_message, branch='main', remote='origin'):
+    # Change to repo directory
+    if not os.path.exists(repo_path):
+        print(f"❌ Repository path does not exist: {repo_path}")
+        sys.exit(1)
+    os.chdir(repo_path)
+ 
     # Git config (optional for automation)
     run_command(['git', 'config', 'user.email', 'copado-bot@example.com'])
     run_command(['git', 'config', 'user.name', 'Copado Robot Bot'])
