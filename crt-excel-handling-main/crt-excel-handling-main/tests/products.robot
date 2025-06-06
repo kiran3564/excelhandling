@@ -17,7 +17,9 @@ Log Library Path
 ${webshop}              https://qentinelqi.github.io/shop/
 ${excel_worksheet}      ${CURDIR}/../files/products_worksheet.xlsx
 ${git_branch}           main
-
+${REPO_PATH}          /home/services/suite/crt-excel-handling-main/crt-excel-handling-main
+${GIT_BRANCH}         main
+${EXCEL_WORKSHEET}    files/products_worksheet.xlsx
 
 *** Test Cases ***
 Verify Products
@@ -62,8 +64,7 @@ Update Product Id
     # Save changes to excel and commit to git
     Save Excel Document  ${excel_worksheet}
     sleep                10s
-   Commit And Push    ${EXCEL_WORKSHEET}    ${GIT_BRANCH}        commit_message=Updated Excel
-      
+    Commit And Push    ${EXCEL_WORKSHEET}    ${GIT_BRANCH}    ${REPO_PATH}      
     Log To Console    ${CURDIR}
     
  
