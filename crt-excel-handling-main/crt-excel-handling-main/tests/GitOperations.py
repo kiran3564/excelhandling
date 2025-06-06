@@ -14,14 +14,28 @@ def run_command(command, cwd=None):
     except subprocess.CalledProcessError as e:
         print(f"❌ Command failed: {e.stderr}")
         sys.exit(1)
- 
-def commit_and_push(self, files, branch, repo_path='.', remote='origin', commit_message='Auto-commit'):
-    # Change to repo directory
-    if not os.path.exists(repo_path):
-        print(f"❌ Repository path does not exist: {repo_path}")
-        sys.exit(1)
-    os.chdir(repo_path)
- 
+ from git import Repo, GitCommandError
+
+class GitOperations:
+    def commit_and_push(self, files, branch, repo_path='.', remote='origin', commit_message='Auto-commit'):
+        try:
+            print(f"DEBUG: repo_path = {repo_path}")
+            print(f"DEBUG: files = {files}")
+            print(f"DEBUG: branch = {branch}")
+
+            repo = Repo(repo_path)
+            assert not repo.bare
+
+            repo.index.add([files] if isinstance(files, str) else files)
+            repo.index.commit(commit_message)
+            repo.remote(name=remote).push(refspec=f"{branch}:{branch}")
+
+            print("Successfully committed and pushed.")
+        except GitCommandError as e:
+            raise Exception(f"GIT ERROR: {e}")
+        except Exception as e:
+            raise Exception(f"UNEXPECTED ERROR: {e}")
+
     # Git config (optional for automation)
     run_command(['git', 'config', 'user.email', 'copado-bot@example.com'])
     run_command(['git', 'config', 'user.name', 'Copado Robot Bot'])
