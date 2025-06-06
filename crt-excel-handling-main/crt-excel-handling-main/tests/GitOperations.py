@@ -15,7 +15,7 @@ def run_command(command, cwd=None):
         print(f"❌ Command failed: {e.stderr}")
         sys.exit(1)
  
-def commit_and_push(repo_path, files, commit_message, branch='main', remote='origin'):
+def commit_and_push(self, files, branch, repo_path='.', remote='origin', commit_message='Auto-commit'):
     # Change to repo directory
     if not os.path.exists(repo_path):
         print(f"❌ Repository path does not exist: {repo_path}")
